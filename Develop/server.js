@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Use the routes for the API
-app.use('/api', routes); // Integrate all API routes under the /api path
+app.use( routes); // Integrate all API routes under the /api path
 
 // Sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
