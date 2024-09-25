@@ -49,5 +49,14 @@ Product.init(
     modelName: 'product'                 // Sets the model name
   }
 );
-
+// Define associations
+Product.associate = (models) => {
+  Product.belongsTo(models.Category, {
+    foreignKey: 'category_id',
+  });
+  Product.belongsToMany(models.Tag, {
+    through: models.ProductTag,
+    foreignKey: 'product_id',
+  });
+};
 module.exports = Product;

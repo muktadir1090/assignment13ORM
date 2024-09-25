@@ -26,4 +26,12 @@ Tag.init(
   }
 );
 
+Tag.associate = (models) => {
+  Tag.belongsToMany(models.Product, {
+    through: models.ProductTag,
+    foreignKey: 'tag_id',
+  });
+};
+
+
 module.exports = Tag;
